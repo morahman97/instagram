@@ -21,6 +21,7 @@
 		CDD4B5012041599C00477CFB /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4B5002041599C00477CFB /* Post.swift */; };
 		CDD4B5032042640900477CFB /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4B5022042640900477CFB /* CreatePostViewController.swift */; };
 		CDD4B505204285E300477CFB /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4B504204285E300477CFB /* PostCell.swift */; };
+		CDD4B50720453E7500477CFB /* DetailViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD4B50620453E7500477CFB /* DetailViewViewController.swift */; };
 		E8728AB34EA6DCF407FF0D67 /* Pods_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D8E8730BDBE6674F090978 /* Pods_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		CDD4B5002041599C00477CFB /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CDD4B5022042640900477CFB /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		CDD4B504204285E300477CFB /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		CDD4B50620453E7500477CFB /* DetailViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewController.swift; sourceTree = "<group>"; };
 		E4EC180723D5AFD8BD5B1655 /* Pods-instagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instagramTests/Pods-instagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 				CDD4B2E9203E6B4000D3B1A7 /* AppDelegate.swift */,
 				CDD4B2EB203E6B4000D3B1A7 /* ViewController.swift */,
 				CDD4B2ED203E6B4000D3B1A7 /* Main.storyboard */,
+				CDD4B50620453E7500477CFB /* DetailViewViewController.swift */,
 				CDD4B504204285E300477CFB /* PostCell.swift */,
 				CDD4B5022042640900477CFB /* CreatePostViewController.swift */,
 				CD9DF2272041497800D8647F /* PostViewController.swift */,
@@ -488,6 +491,7 @@
 				CDD4B2EC203E6B4000D3B1A7 /* ViewController.swift in Sources */,
 				CDD4B2EA203E6B4000D3B1A7 /* AppDelegate.swift in Sources */,
 				CDD4B5032042640900477CFB /* CreatePostViewController.swift in Sources */,
+				CDD4B50720453E7500477CFB /* DetailViewViewController.swift in Sources */,
 				CDD4B5012041599C00477CFB /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

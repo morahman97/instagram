@@ -174,6 +174,57 @@
             </objects>
             <point key="canvasLocation" x="1869.5999999999999" y="132.68365817091455"/>
         </scene>
+        <!--Detail View View Controller-->
+        <scene sceneID="wow-wx-GdV">
+            <objects>
+                <viewController id="au6-n3-U03" customClass="DetailViewViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OBM-j4-dAr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OhB-jA-m0Z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="RUd-n5-qfx">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="iea-bD-Dtl">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G8u-Fr-FPT">
+                                                <rect key="frame" x="16" y="7" width="34" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Back"/>
+                                                <connections>
+                                                    <action selector="backButtonPressed:" destination="au6-n3-U03" eventType="touchUpInside" id="Zx5-O8-khx"/>
+                                                    <segue destination="dIR-8R-W9a" kind="presentation" identifier="backSegue" id="eet-Lb-Ctz"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="NsX-zW-6Qe" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="376"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMa-RY-29U">
+                                <rect key="frame" x="0.0" y="428" width="375" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="H0P-Xh-NfF"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoView" destination="NsX-zW-6Qe" id="3ON-ej-Sh2"/>
+                        <outlet property="postDescLabel" destination="kMa-RY-29U" id="N7p-RF-KPK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tuj-XS-ILO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1874" y="861"/>
+        </scene>
         <!--Create Post View Controller-->
         <scene sceneID="QKc-zO-8MU">
             <objects>
@@ -265,7 +316,6 @@
         <image name="insta_camera_btn" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Ex-As-QJb"/>
-        <segue reference="emm-Tk-Drv"/>
+        <segue reference="eet-Lb-Ctz"/>
     </inferredMetricsTieBreakers>
 </document>

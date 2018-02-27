@@ -106,7 +106,6 @@
                                         <connections>
                                             <outlet property="photoView" destination="daX-fR-2jl" id="shp-2G-Rx1"/>
                                             <outlet property="postDescLabel" destination="CCi-1M-oDU" id="wTu-YC-3bE"/>
-                                            <outlet property="postImageView" destination="daX-fR-2jl" id="dYq-sh-ix5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

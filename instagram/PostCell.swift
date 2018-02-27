@@ -13,15 +13,10 @@ import ParseUI
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var postDescLabel: UILabel!
-    @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var photoView: PFImageView!
     
     var post : PFObject! {
         didSet {
-            
-            //postImageView.image = post.media
-//            postDescLabel.text = post.caption
-//            postImageView.image = post.media as! UIImage
             photoView.file = post["image"] as? PFFile
             photoView.loadInBackground()
         }

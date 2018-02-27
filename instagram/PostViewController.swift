@@ -8,10 +8,12 @@
 
 import UIKit
 import Parse
+import ParseUI
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class PostViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var posts: [Post]!
+    var refreshControl : UIRefreshControl!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,7 +28,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        cell.post = posts[indexPath.row]
+        let post = posts[indexPath.row] as PFObject!
+        
+        cell.postDescLabel.text = (post!["caption"] as! String)
+        cell.photoView.file = (post!["media"] as! PFFile)
+        cell.photoView.loadInBackground()
         return cell
 
     }
@@ -35,43 +41,51 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func onPost(_ sender: Any) {
         self.performSegue(withIdentifier: "postSegue", sender: nil)
     }
+    
     // Logs out the user and sends them back to login screen
     @IBAction func onLogout(_ sender: Any) {
         PFUser.logOutInBackground()
         self.performSegue(withIdentifier: "logoutSegue", sender: nil)
     }
     
-    let vc = UIImagePickerController()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let refreshControl = UIRefreshControl()
-        
+        fetchPosts()
+
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = 440
         tableView.delegate = self
         tableView.dataSource = self
-        vc.delegate = self
         
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(PostViewController.fetchPosts), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl){
+        fetchPosts()
+    }
+    
+    @objc func fetchPosts() {
         // construct PFQuery
         let query = Post.query()
         query?.order(byDescending: "createdAt")
         query?.includeKey("author")
         query?.limit = 20
-
+        
         query?.findObjectsInBackground(block: {(posts: [PFObject]?, error: Error?) -> Void in
             if let posts = posts {
                 self.posts = posts as! [Post]
                 print(posts.count)
                 self.tableView.reloadData()
-                refreshControl.endRefreshing()
-                // do something with the data fetched
+                self.refreshControl.endRefreshing()
             } else {
                 print("coudln't find data")
             }
         })
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

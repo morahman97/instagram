@@ -20,7 +20,6 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func setImage(_ sender: Any) {
         // Get the image captured by the UIImagePickerController
         
-        //present(vc, animated : true, completion : nil)
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
@@ -63,21 +62,12 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]) {
-        // Get the image captured by the UIImagePickerController
-       /* print("Gets in imagePickerController")
-        vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
-        self.present(vc, animated: true, completion: nil)*/
-        print("calls present in imagePickerController")
+        // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         postImage.setImage(editedImage, for: UIControlState.normal)
-        print("Sets image properly")
         self.image = editedImage
-        
-        // Do something with the images (based on your use case)
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)

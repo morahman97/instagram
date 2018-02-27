@@ -26,9 +26,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        
         cell.post = posts[indexPath.row]
-        
         return cell
 
     }
@@ -61,33 +59,24 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         query?.order(byDescending: "createdAt")
         query?.includeKey("author")
         query?.limit = 20
-        
-        // fetch data asynchronously
 
+        query?.findObjectsInBackground(block: {(posts: [PFObject]?, error: Error?) -> Void in
+            if let posts = posts {
+                self.posts = posts as! [Post]
+                print(posts.count)
+                self.tableView.reloadData()
+                refreshControl.endRefreshing()
+                // do something with the data fetched
+            } else {
+                print("coudln't find data")
+            }
+        })
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : Any]) {
-        // Get the image captured by the UIImagePickerController
-        vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
-        self.present(vc, animated: true, completion: nil)
-        
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        
-        // Do something with the images (based on your use case)
-        
-        // Dismiss UIImagePickerController to go back to your original view controller
-        dismiss(animated: true, completion: nil)
     }
     
 

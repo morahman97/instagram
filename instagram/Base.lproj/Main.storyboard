@@ -83,17 +83,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="439" id="pga-XO-Lh7" customClass="PostCell" customModule="instagram" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="439" id="pga-XO-Lh7" customClass="PostCell" customModule="instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="439"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pga-XO-Lh7" id="KPj-Mq-dNa">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="438.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="daX-fR-2jl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="376"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCi-1M-oDU">
                                                     <rect key="frame" x="0.0" y="384" width="375" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,9 +97,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="daX-fR-2jl" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="376"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="photoView" destination="daX-fR-2jl" id="shp-2G-Rx1"/>
                                             <outlet property="postDescLabel" destination="CCi-1M-oDU" id="wTu-YC-3bE"/>
                                             <outlet property="postImageView" destination="daX-fR-2jl" id="dYq-sh-ix5"/>
                                         </connections>
@@ -265,6 +266,7 @@
         <image name="insta_camera_btn" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="6Ex-As-QJb"/>
         <segue reference="emm-Tk-Drv"/>
     </inferredMetricsTieBreakers>
 </document>
